@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flecha Log S.A. - Seguimiento de Envíos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-top: 20px;
+      border: 2px solid #003366; /* color azul corporativo */
+      border-radius: 8px;
+    }
+    .form-seguimiento {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #a3d2ca; /* celeste pastel */
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #f4a261; /* naranja */
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      width: 100%;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #e07b3b;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fuente de íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+      <h1>Packing flex</h1>
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <!-- Botón Home -->
+        <li>
+          <a href="index.html" class="home-btn">
+            <i class="fas fa-home"></i> Home
+          </a>
+  </header>
+  <main>
+        <!-- Formulario -->
+
+    <section class="form-seguimiento">
+      <h2>Seguimiento de tu envío</h2>
+      <form id="form-seguimiento">
+        <label for="codigo-envio">Ingresá el código de envío (4 dígitos):</label><br />
+        <input type="text" id="codigo-envio" name="codigo-envio" pattern="\d{4}" maxlength="4" required placeholder="Ej: 1234" /><br />
+        <button type="submit">Ver ubicación</button>
+      </form>
+
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>Teléfono: +54 11 1234-5678</p>
+      <p>Email: contacto@flechalogsa.com.ar</p>
+      <p>Dirección: Av. Logística 123, Buenos Aires</p>
+    </section>
+  </footer>
+        <!-- Simulacion de coordenadas y base de datos -->
+  <script>
+    const envioUbicaciones = {
+      '1234': { lat: -34.6037, lng: -58.3816 }, // Buenos Aires
+      '5678': { lat: -31.4201, lng: -64.1888 }, // Córdoba
+      '9012': { lat: -32.8895, lng: -68.8458 }, // Mendoza
+      '3456': { lat: -38.4161, lng: -63.6167 }  // Patagonia
+    };
+
+    const formSeguimiento = document.getElementById('form-seguimiento');
+    const mapDiv = document.getElementById('map');
+    let map;
+    let marker;
+
+    function initMap() {
+      map = new google.maps.Map(mapDiv, {
+        center: { lat: -34.6037, lng: -58.3816 },
+        zoom: 5,
+      });
+    }
+<!--formulario de seguimiento -->  
+    
+    formSeguimiento.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const codigo = document.getElementById('codigo-envio').value;
+
+      if (envioUbicaciones[codigo]) {
+        const loc = envioUbicaciones[codigo];
+        map.setCenter(loc);
+        map.setZoom(12);
+
+        if (marker) {
+          marker.setPosition(loc);
+        } else {
+          marker = new google.maps.Marker({
+            position: loc,
+            map: map,
+            title: `Envío ${codigo}`
+          });
+        }
+      } else {
+        alert('Código no encontrado. Por favor, verificá el código ingresado.');
+      }
+    });
+
+    window.initMap = initMap;
+  </script>
+
+  <!-- Google Maps API + clave insertada -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvEP-Wla8hO_Hn3oX9q6oBU_e_1vGjAx0&callback=initMap">
+  </script>
+</body>
+</html>

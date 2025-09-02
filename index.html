@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Packing flex - Plataforma de Servicios Logísticos</title>
+
+  <!-- Link al CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Fuente de íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Packing flex📦</h1>
+    <nav>
+      <ul class="menu">
+
+        <!-- Botón Home -->
+        <li>
+          <a href="index.html" class="home-btn">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" id="menu-toggle"> =Menú</a>
+          <ul class="submenu">
+            <li><a href="pages/servicios.html">Servicios</a></li>
+            <li><a href="pages/cotizar.html">Cotizar envío</a></li>
+            <li><a href="pages/seguimiento.html">Seguimiento</a></li>
+            <li><a href="pages/contacto.html">Contacto</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+        <!-- inserccion de la imagen del inicio -->
+<section class="banner">
+  <img src="assets/images/paqueteria.png" alt="Paquetería" class="banner-img" />
+  <h2>Soluciones logísticas confiables para tu negocio</h2>
+  <p>Envíos rápidos, seguros y a tu medida.</p>
+</section>
+
+
+  <footer>
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>Teléfono: +54 11 1234-5678</p>
+      <p>Email: contacto@packingflex.com.ar</p>
+      <p>Dirección: Av. Logística 123, Buenos Aires</p>
+    </section>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menu-toggle');
+      const submenu = toggle.nextElementSibling;
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        submenu.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !submenu.contains(e.target)) {
+          submenu.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

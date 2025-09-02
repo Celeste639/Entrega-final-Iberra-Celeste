@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Packing flex - Cotizar Envío</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fuente de íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+      <h1>Packing flex</h1>
+    </div>
+    <nav>
+      <ul class="menu">
+        
+        <!-- Botón Home -->
+        <li>
+          <a href="index.html" class="home-btn">
+            <i class="fas fa-home"></i> Home
+          </a>
+  </header>
+        <!-- formulario de "cotizacion" -->
+  <main>
+    <section class="formulario-cotizacion">
+      <h2>Solicitá tu envío</h2>
+      <form id="form-cotizacion">
+        <label for="nombre">Nombre completo:</label><br />
+        <input type="text" id="nombre" name="nombre" required /><br />
+
+        <label for="email">Correo electrónico:</label><br />
+        <input type="email" id="email" name="email" required /><br />
+
+        <label for="telefono">Teléfono:</label><br />
+        <input type="tel" id="telefono" name="telefono" required /><br />
+
+        <label for="tipo-envio">Tipo de envío:</label><br />
+        <select id="tipo-envio" name="tipo-envio" required>
+          <option value="">--Seleccionar--</option>
+          <option value="paquete">Paquete</option>
+          <option value="pallet">Pallet</option>
+          <option value="documentos">Documentos</option>
+          <option value="otro">Otro</option>
+        </select><br />
+
+        <label for="peso">Peso (kg):</label><br />
+        <input type="number" id="peso" name="peso" min="0" step="0.1" required /><br />
+
+        <label for="dimensiones">Dimensiones (cm) - Largo x Ancho x Alto:</label><br />
+        <input type="text" id="dimensiones" name="dimensiones" placeholder="Ej: 50x30x20" required /><br />
+
+        <label for="origen">Dirección de origen:</label><br />
+        <input type="text" id="origen" name="origen" required /><br />
+
+        <label for="destino">Dirección de destino:</label><br />
+        <input type="text" id="destino" name="destino" required /><br />
+
+        <label for="fecha">Fecha de envío:</label><br />
+        <input type="date" id="fecha" name="fecha" required /><br />
+
+        <label for="tipo-servicio">Tipo de servicio:</label><br />
+        <select id="tipo-servicio" name="tipo-servicio" required>
+          <option value="">--Seleccionar--</option>
+          <option value="estandar">Estándar</option>
+          <option value="urgente">Urgente</option>
+        </select><br />
+
+        <button type="submit">Generar etiqueta con QR</button>
+
+        <!-- final de la pagina -->
+  <footer>
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>Teléfono: +54 11 1234-5678</p>
+      <p>Email: contacto@flechalogsa.com.ar</p>
+      <p>Dirección: Av. Logística 123, Buenos Aires</p>
+    </section>
+  </footer>
+</body>
+</html>

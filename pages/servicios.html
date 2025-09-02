@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios - Packing flex</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fuente de íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Packing flex</h1>
+    <nav>
+      <ul class="menu">
+
+        <!-- Botón Home -->
+        <li>
+          <a href="index.html" class="home-btn">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="#" id="menu-toggle">= Menú</a>
+          <ul class="submenu">
+            <li><a href="servicios.html" class="active">Servicios</a></li>
+            <li><a href="cotizar.html">Cotizar envío</a></li>
+            <li><a href="seguimiento.html">Seguimiento</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+        <!-- "primer tarjeta de texto" -->
+  <main>
+    <section class="intro-servicios">
+      <h1>Nuestros Servicios</h1>
+      <p>
+        En <strong>Packing flex</strong> brindamos soluciones logísticas integrales para empresas, 
+        emprendedores y clientes particulares. Nuestro objetivo es que cada envío llegue 
+        a tiempo, en perfectas condiciones y al mejor costo posible.
+      </p>
+      <p>
+        Ofrecemos una amplia gama de servicios que incluyen paquetería, logística para empresas,
+        picking y packing, y soluciones personalizadas para microemprendimientos.  
+        Nos adaptamos a tus necesidades para que puedas enfocarte en lo que más importa: 
+        hacer crecer tu negocio.
+      </p>
+    </section>
+        <!-- tarjetas de servicio -->
+    <section class="tarjetas-servicios">
+      <div class="tarjeta">
+        <div class="icono">📦</div>
+        <h3>Envío de Paquetería</h3>
+        <p>Trasladamos tus paquetes de forma rápida, segura y a todo el país.</p>
+      </div>
+
+      <div class="tarjeta">
+        <div class="icono">🛠️</div>
+        <h3>Picking y Packing</h3>
+        <p>Preparación y embalaje profesional para garantizar la integridad de tus envíos.</p>
+      </div>
+
+      <div class="tarjeta">
+        <div class="icono">🚚</div>
+        <h3>Logística para Empresas</h3>
+        <p>Soluciones integrales de transporte y distribución para tu negocio.</p>
+      </div>
+
+      <div class="tarjeta">
+        <div class="icono">💼</div>
+        <h3>Sevicio para pequeñas empresas</h3>
+        <p>Apoyo logístico y envíos adaptados a las necesidades de pequeños emprendimientos.</p>
+      </div>
+    </section>
+  </main>
+        <!-- final de la pagina -->
+  <footer>
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>Teléfono: +54 11 1234-5678</p>
+      <p>Email: contacto@packingflex.com.ar</p>
+      <p>Dirección: Av. Logística 123, Buenos Aires</p>
+    </section>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menu-toggle');
+      const submenu = toggle.nextElementSibling;
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        submenu.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !submenu.contains(e.target)) {
+          submenu.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
