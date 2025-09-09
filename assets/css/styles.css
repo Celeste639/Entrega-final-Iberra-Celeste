@@ -2,11 +2,13 @@
   Variables y configuración global
 --------------------------------------------------*/
 :root {
-  --gris-oscuro: #495057; /* Un gris profesional y oscuro */
+  --azul: #495057; 
   --celeste-pastel: #c2d2eb;
   --naranja: #f4a261;
   --blanco: #ffffff;
   --gris-claro: #f9fafc;
+  --azul-claro-suave: #e0f2f7; 
+  --azul-medio-suave: #c2e0f0;
 }
 
 /* Reset y estilos base */
@@ -43,8 +45,31 @@ header {
   background-color: var(--azul);
 }
 
+.bg-dark {
+    background-color: var(--azul) !important; 
+}
+
+.navbar-dark.bg-dark { 
+    background-color: var(--azul) !important;
+}
+
+/* Ajustes para el contenedor dentro de la navegación */
+.navbar .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .navbar-brand {
     color: var(--blanco) !important;
+    padding-left: 15px !important;
+    margin-left: 0 !important;
+}
+
+/* Estilos para el logo de la barra de navegación */
+.navbar-logo {
+    height: 40px; 
+    max-width: 100%; 
+    vertical-align: middle; 
 }
 
 .nav-link {
@@ -59,38 +84,105 @@ header {
 }
 
 /*--------------------------------------------------
-  Banner
+  Banner (Sección de inicio hero)
 --------------------------------------------------*/
-.banner {
-  position: relative;
-  text-align: center;
-  background-color: var(--celeste-pastel);
+.hero-section {
+    background-color: var(--gris-claro); 
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
-.banner-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+.hero-section h1 .text-naranja {
+    color: var(--naranja);
 }
 
-.banner-content {
+.hero-section .list-unstyled li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section .btn-primary {
+    background-color: var(--naranja); 
+    border-color: var(--naranja);
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #e17e3f; 
+    border-color: #e17e3f;
+}
+
+.hero-image-container {
+    position: relative;
+    padding: 2rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative; 
+    z-index: 2;
+}
+
+.shapes-background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--azul);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; 
 }
 
-.banner h2 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+.shapes-background::before,
+.shapes-background::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    opacity: 0.7;
+    filter: blur(50px);
 }
 
-.banner p {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+.shapes-background::before {
+    background-color: var(--azul-claro-suave);
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -50px;
+}
+
+.shapes-background::after {
+    background-color: var(--azul-medio-suave);
+    width: 300px;
+    height: 300px;
+    bottom: -80px;
+    right: -80px;
+    transform: rotate(45deg);
+}
+
+/* Media queries para ajustar el diseño en pantallas pequeñas */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-image-container {
+        padding: 1rem;
+    }
+    .shapes-background::before {
+        width: 150px;
+        height: 150px;
+    }
+    .shapes-background::after {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 /*--------------------------------------------------
@@ -158,12 +250,6 @@ header {
   margin-bottom: 1rem;
 }
 
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
 .form-group input, .form-group select, .form-group textarea {
   width: 100%;
   padding: 10px;
@@ -195,6 +281,45 @@ button[type="submit"]:hover {
     margin-top: 20px;
     border: 2px solid var(--azul);
     border-radius: 8px;
+}
+
+/*--------------------------------------------------
+  Sección de Beneficios de Cotización
+--------------------------------------------------*/
+.beneficios-cotizacion {
+    background-color: var(--gris-claro);
+}
+
+.beneficios-cotizacion h2,
+.beneficios-cotizacion .lead {
+    color: var(--azul);
+}
+
+.card {
+    background-color: var(--blanco);
+    border: none;
+    border-radius: 10px;
+}
+
+.icono-card {
+    font-size: 2.5rem;
+    color: var(--naranja);
+}
+
+.beneficios-cotizacion .card-title {
+    color: var(--azul);
+    font-weight: bold;
+}
+
+.beneficios-cotizacion .btn-link {
+    color: var(--azul);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.beneficios-cotizacion .btn-link:hover {
+    color: var(--naranja);
 }
 
 /*--------------------------------------------------

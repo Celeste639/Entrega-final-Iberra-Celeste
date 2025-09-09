@@ -9,36 +9,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-    <header class="bg-dark text-white py-3">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
-            <a class="navbar-brand h1 mb-0" href="../index.html">Packing flex📦</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html"><i class="fas fa-home"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.html">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cotizar.html">Cotizar envío</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="seguimiento.html">Seguimiento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
+<header class="bg-dark text-white py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+        <a class="navbar-brand h1 mb-0" href="../index.html">
+            <img src="/assets/images/logo.png" alt="Logo de Packing flex" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="servicios.html">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cotizar.html">Cotizar envío</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="seguimiento.html">Seguimiento</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
     <main>
+        <section class="beneficios-cotizacion py-5">
+            <div class="container text-center">
+                <h2 class="mb-4">Configurá tus envíos a la medida de tu negocio</h2>
+                <p class="lead mb-5">
+                    Adaptá tu operación para aprovechar al máximo Packing flex y llegar a más compradores.
+                </p>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm text-center">
+                            <div class="card-body">
+                                <div class="icono-card mb-3">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <h3 class="card-title h5">Días y horarios</h3>
+                                <p class="card-text">Extendé los días y horarios en los que ofrecés envíos rápidos y destacá tus productos por más tiempo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm text-center">
+                            <div class="card-body">
+                                <div class="icono-card mb-3">
+                                    <i class="fas fa-box-open"></i>
+                                </div>
+                                <h3 class="card-title h5">Capacidad</h3>
+                                <p class="card-text">Establecé cuántas entregas vas a despachar en el día, según el volumen de tus ventas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm text-center">
+                            <div class="card-body">
+                                <div class="icono-card mb-3">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <h3 class="card-title h5">Área de cobertura</h3>
+                                <p class="card-text">Elegí el área en la que querés ofrecer envíos rápidos en tu ciudad.</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="form-container">
             <h2>Solicitá tu envío</h2>
             <form id="form-cotizacion">
