@@ -1,274 +1,120 @@
-/* Colores corporativos */
+/*--------------------------------------------------
+  Variables y configuración global
+--------------------------------------------------*/
 :root {
-  --azul: #003366;
+  --gris-oscuro: #495057; /* Un gris profesional y oscuro */
   --celeste-pastel: #c2d2eb;
   --naranja: #f4a261;
   --blanco: #ffffff;
+  --gris-claro: #f9fafc;
 }
 
-/* Reset básico */
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
+/* Reset y estilos base */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
   background-color: var(--blanco);
   color: var(--azul);
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--azul);
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+/*--------------------------------------------------
+  Header y Navegación
+--------------------------------------------------*/
 header {
   background-color: var(--azul);
-  color: var(--blanco);
-  padding: 15px;
 }
 
-.logo {
-  display: inline-block;
-  vertical-align: middle;
+.navbar-brand {
+    color: var(--blanco) !important;
 }
 
-.logo img {
-  width: 50px;
-  vertical-align: middle;
+.nav-link {
+    color: var(--blanco) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.logo h1 {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 1.5rem;
-  vertical-align: middle;
+.nav-link.active, .nav-link:hover {
+    background-color: var(--naranja);
+    color: var(--blanco) !important;
+    border-radius: 5px;
 }
 
-nav {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 50px;
-}
-
-.menu {
-  list-style: none;
-}
-
-.menu li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.menu a {
-  color: var(--blanco);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
+/*--------------------------------------------------
+  Banner
+--------------------------------------------------*/
 .banner {
-  background-color: var(--celeste-pastel);
+  position: relative;
   text-align: center;
-  padding: 40px 20px;
+  background-color: var(--celeste-pastel);
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--azul);
 }
 
 .banner h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
-.servicios {
-  padding: 20px;
-  background-color: #f9f9f9;
+.banner p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-.servicios h2 {
-  color: var(--azul);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.servicios article {
-  background-color: var(--blanco);
-  border: 1px solid var(--celeste-pastel);
-  margin-bottom: 15px;
-  padding: 15px;
-}
-
-.servicios h3 {
-  color: var(--naranja);
-  margin-bottom: 10px;
-}
-
-footer {
-  background-color: var(--azul);
-  color: var(--blanco);
-  padding: 20px;
-  text-align: center;
-}
-
-footer .contacto p {
-  margin-bottom: 5px;
-}
-
-.formulario-cotizacion {
-  max-width: 500px;    /* ancho máximo para que no sea muy ancho */
-  margin: 40px auto;   /* margen vertical y automático a los lados para centrar */
-  padding: 20px;
-  background-color: var(--celeste-pastel);
-  border-radius: 8px;
-  box-sizing: border-box; /* para que el padding no aumente el ancho total */
-}
-/* ==== Menú desplegable ==== */
-
-/* Para que los submenús se posicionen correctamente */
-.menu li {
-  position: relative;
-}
-
-/* Submenú oculto */
-.menu li ul {
-  display: none;
-  position: absolute;
-  background-color: var(--azul);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  top: 100%;
-  left: 0;
-  min-width: 180px;
-  z-index: 10;
-}
-
-/* Mostrar submenú al pasar el mouse */
-.menu li:hover ul {
-  display: block;
-}
-
-/* Estilo de los enlaces dentro del submenú */
-.menu li ul li {
-  display: block;
-  margin: 0;
-}
-
-.menu li ul li a {
-  display: block;
-  padding: 10px;
-  color: var(--blanco);
-  text-decoration: none;
-  font-weight: normal;
-}
-
-.menu li ul li a:hover {
-  background-color: var(--naranja);
-  text-decoration: none;
-}
-.btn-inicio {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background-color: #0074D9;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 15px;
-  transition: background 0.3s ease;
-}
-
-.btn-inicio:hover {
-  background-color: #005fa3;
-}
-
-.btn-inicio i {
-  font-size: 1.2em;
-}
-/* ======== Servicios ======== */
+/*--------------------------------------------------
+  Sección de Servicios
+--------------------------------------------------*/
 .intro-servicios {
-  max-width: 900px;
-  margin: 50px auto;
+  margin-top: 50px;
   padding: 30px;
   background: linear-gradient(135deg, #f9fafc, #e3f2fd);
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   text-align: center;
 }
 
 .intro-servicios h1 {
   font-size: 2.5rem;
-  color: #0d47a1;
-  margin-bottom: 20px;
+  color: var(--azul);
   font-weight: 700;
 }
 
-.intro-servicios p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #333;
-}
-
-/* Efecto hover en el texto (opcional para darle vida) */
-.intro-servicios:hover {
-  transform: translateY(-3px);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* ======== Menú desplegable ======== */
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu > li {
-  position: relative;
-  display: inline-block;
-}
-
-.menu a {
-  text-decoration: none;
-  padding: 10px 15px;
-  color: #fafafa;
-  font-weight: 600;
-}
-
-.submenu {
-  display: none;
-  position: absolute;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  list-style: none;
-  padding: 10px 0;
-  min-width: 180px;
-}
-
-.submenu li a {
-  display: block;
-  padding: 10px 20px;
-  color: #022963;
-  transition: background 0.3s;
-}
-
-.submenu li a:hover {
-  background: #ff9800;
-  color: white;
-}
-
-.submenu.show {
-  display: block;
-}
-/* ======== Tarjetas de Servicios ======== */
 .tarjetas-servicios {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-  text-align: center;
 }
 
 .tarjeta {
@@ -276,95 +122,57 @@ footer .contacto p {
   border-radius: 15px;
   padding: 25px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarjeta:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
 }
 
 .icono {
   font-size: 3rem;
+  color: var(--naranja);
   margin-bottom: 15px;
 }
 
-.tarjeta h3 {
-  font-size: 1.4rem;
-  color: #0d47a1;
-  margin-bottom: 10px;
-}
-
-.tarjeta p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
-}
-.banner {
-  background-color: var(--celeste-pastel);
-  text-align: center;
-  padding: 40px 20px;
-}
-.banner-img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  border: 3px solid rgb(182, 227, 248);  /* Agregado temporal para visualizar bordes */
-}
-
-.banner h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--azul);
-}
-
-.banner p {
-  font-size: 1.2rem;
-  color: var(--azul);
-}
-.formulario-contacto {
-  max-width: 500px;       /* ancho máximo para que no se extienda mucho */
-  margin: 50px auto;      /* margen automático a los lados para centrar */
-  padding: 20px;
+/*--------------------------------------------------
+  Formularios
+--------------------------------------------------*/
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 2rem;
   background-color: var(--celeste-pastel);
   border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  text-align: left;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-.formulario-contacto h2 {
+.form-container h2 {
   text-align: center;
-  color: var(--azul);
-  margin-bottom: 25px;
-  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
-.formulario-contacto label {
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
   display: block;
-  margin-bottom: 6px;
   font-weight: 600;
-  color: var(--azul);
+  margin-bottom: 0.5rem;
 }
 
-.formulario-contacto input,
-.formulario-contacto textarea {
+.form-group input, .form-group select, .form-group textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
   border: 1px solid var(--azul);
   border-radius: 5px;
   font-size: 1rem;
-  resize: vertical;
-  font-family: inherit;
-  box-sizing: border-box;
 }
 
-.formulario-contacto button {
+button[type="submit"] {
   width: 100%;
   background-color: var(--naranja);
   color: white;
@@ -377,6 +185,28 @@ footer .contacto p {
   transition: background-color 0.3s ease;
 }
 
-.formulario-contacto button:hover {
+button[type="submit"]:hover {
   background-color: #e17e3f;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid var(--azul);
+    border-radius: 8px;
+}
+
+/*--------------------------------------------------
+  Footer
+--------------------------------------------------*/
+footer {
+  background-color: var(--azul);
+  color: var(--blanco);
+  padding: 2rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0.5rem 0;
 }
