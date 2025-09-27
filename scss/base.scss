@@ -1,0 +1,28 @@
+// scss/_base.scss
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-principal;
+    background-color: $color-blanco;
+    color: $color-azul;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $color-azul;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+// Contenedor principal
+.container {
+    max-width: $max-width-container; // Usando variable
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $padding-container; // Usando variable
+}

@@ -1,0 +1,15 @@
+// scss/_mixins.scss
+
+// Mixin para Media Queries (Responsive Design)
+@mixin mobile-only {
+    @media (max-width: $bp-mobile) {
+        @content; // @content inserta el bloque de código CSS que se le pasa al mixin
+    }
+}
+
+// Mixin para Flexbox (reutilizable)
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,90 @@
+// scss/_layout.scss
+
+// --------------------------------------------------
+// HEADER y Navegación (Nesting aplicado)
+// --------------------------------------------------
+header {
+    background-color: $color-azul; // Usando variable
+}
+
+// Usamos el nesting para agrupar selectores de la navbar
+.navbar {
+    background-color: $color-azul !important; // Usando variable
+    
+    // Nesting para el contenedor interno
+    .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    // Nesting para el logo
+    &-brand {
+        color: $color-blanco !important; // Usando variable
+        padding-left: $padding-container !important; // Usando variable
+        margin-left: 0 !important;
+    }
+
+    // Estilos del logo (imagen)
+    &-logo {
+        height: 40px;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    // Estilos de los enlaces de navegación
+    .nav-link {
+        color: $color-blanco !important;
+        transition: background-color $transition-time ease, color $transition-time ease; // Usando variable
+
+        // Nesting para hover y active (REQUISITO: Nesting y Transición)
+        &.active, &:hover { 
+            background-color: $color-naranja; // Usando variable
+            color: $color-blanco !important;
+            border-radius: 5px;
+        }
+    }
+}
+
+// --------------------------------------------------
+// PIE DE PÁGINA (Footer)
+// --------------------------------------------------
+footer {
+    background-color: $color-azul;
+    color: $color-blanco;
+    padding: 2rem;
+    text-align: center;
+    
+    p {
+        margin: 0.5rem 0;
+    }
+}
+
+// --------------------------------------------------
+// Tarjetas de Servicios (REQUISITO: Grid y Nesting)
+// --------------------------------------------------
+.tarjetas-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta {
+    background: $color-blanco;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px $sombra-media;
+    transition: transform $transition-time ease, box-shadow $transition-time ease; // Usando variable
+
+    // Nesting para el estado hover (REQUISITO: Transformación)
+    &:hover { 
+        transform: translateY(-8px); // Aplicación de Transformación
+        box-shadow: 0 12px 25px $sombra-base * 1.2; // Usando operador SASS para ajustar sombra
+    }
+
+    .icono { // Nesting para el icono dentro de la tarjeta
+        font-size: 3rem;
+        color: $color-naranja;
+        margin-bottom: 15px;
+    }
+}

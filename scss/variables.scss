@@ -1,0 +1,31 @@
+// scss/_variables.scss
+
+// ===================================================
+// COLORES
+// ===================================================
+$color-azul: #495057; 
+$color-celeste-pastel: #c2d2eb;
+$color-naranja: #f4a261;
+$color-blanco: #ffffff;
+$color-gris-claro: #f9fafc;
+$color-azul-claro-suave: #e0f2f7; 
+$color-azul-medio-suave: #c2e0f0;
+
+// Colores derivados (para hover o sombra)
+$color-naranja-hover: #e17e3f; // Usado en el CSS (es un darken)
+$sombra-base: rgba(0,0,0,0.1);
+$sombra-media: rgba(0,0,0,0.08);
+
+// ===================================================
+// TIPOGRAFÍA Y MEDIDAS
+// ===================================================
+$font-principal: Arial, sans-serif;
+$max-width-container: 1200px;
+$padding-container: 15px;
+$border-radius-base: 10px;
+$transition-time: 0.3s;
+
+// ===================================================
+// BREAKPOINTS (para Media Queries)
+// ===================================================
+$bp-mobile: 768px; // Usaremos 768px para el media query existente

@@ -1,0 +1,106 @@
+// scss/_components.scss
+
+// --------------------------------------------------
+// BANNER/HERO (REQUISITO: Nesting y Mixin Responsive)
+// --------------------------------------------------
+.hero-section {
+    background-color: $color-gris-claro;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    h1 .text-naranja {
+        color: $color-naranja;
+    }
+
+    .list-unstyled li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-primary { // Estilo del botón principal
+        background-color: $color-naranja;
+        border-color: $color-naranja;
+        font-weight: bold;
+        padding: 0.8rem 2rem;
+        transition: background-color $transition-time ease, border-color $transition-time ease;
+
+        &:hover { // Nesting para hover
+            background-color: $color-naranja-hover;
+            border-color: $color-naranja-hover;
+        }
+    }
+
+    .hero-image-container {
+        position: relative;
+        padding: 2rem;
+        @include flex-center; // Usando Mixin
+    }
+
+    .hero-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px $sombra-base;
+        position: relative;
+        z-index: 2;
+    }
+
+    // Fondos de formas (shapes)
+    .shapes-background {
+        position: absolute;
+        // ... (resto de propiedades) ...
+
+        &::before, &::after { // Nesting para pseudo-elementos
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(50px);
+        }
+
+        &::before {
+            background-color: $color-azul-claro-suave;
+            width: 250px;
+            height: 250px;
+            top: -50px;
+            left: -50px;
+        }
+        
+        &::after {
+            background-color: $color-azul-medio-suave;
+            width: 300px;
+            height: 300px;
+            bottom: -80px;
+            right: -80px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// --------------------------------------------------
+// FORMULARIOS (Nesting aplicado)
+// --------------------------------------------------
+.form-container {
+    background-color: $color-celeste-pastel;
+
+    h2 { text-align: center; }
+
+    .form-group {
+        input, select, textarea { // Anidamiento de elementos de formulario
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $color-azul;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    }
+
+    button[type="submit"] {
+        background-color: $color-naranja;
+        transition: background-color $transition-time ease;
+
+        &:hover {
+            background-color: $color-naranja-hover;
+        }
+    }
+}

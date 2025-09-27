@@ -1,0 +1,14 @@
+// scss/main.scss
+// 1. Configuración y Base
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+// 2. Layout (Estructura de la página)
+@import 'layout';
+
+// 3. Componentes y Elementos
+@import 'components';
+
+// 4. Responsive Design
+@import 'responsive';
