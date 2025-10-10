@@ -26,3 +26,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
     padding: 0 $padding-container; // Usando variable
 }
+// ===================================
+// GENERADOR DE CLASES CON MAPA
+// ===================================
+// Este bucle crea clases como .text-azul, .bg-naranja, etc.
+// a partir del mapa de colores.
+@each $name, $color in $colors-map {
+  .text-#{$name} {
+    color: $color;
+  }
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}

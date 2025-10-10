@@ -29,3 +29,11 @@ $transition-time: 0.3s;
 // BREAKPOINTS (para Media Queries)
 // ===================================================
 $bp-mobile: 768px; // Usaremos 768px para el media query existente
+// MAPA DE COLORES
+$colors-map: (
+  "azul": $azul,
+  "naranja": $naranja,
+  "blanco": "blanco",
+  "celeste-pastel": $celeste-pastel,
+  "gris-claro": $gris-claro
+);

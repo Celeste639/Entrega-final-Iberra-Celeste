@@ -1,8 +1,52 @@
 // scss/_components.scss
 
-// --------------------------------------------------
-// BANNER/HERO (REQUISITO: Nesting y Mixin Responsive)
-// --------------------------------------------------
+// ==================================================
+// BOTONES REUTILIZABLES CON @EXTEND
+// ==================================================
+
+// 1. Creamos el "placeholder" con los estilos base para TODOS los botones.
+//    Esto no genera CSS por sí solo, solo sirve para ser extendido.
+%btn-base {
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+// 2. Creamos el botón primario que HEREDA de la base.
+.btn-primary {
+  @extend %btn-base; // <-- ¡Aquí está la magia de @extend!
+  background-color: $color-naranja;
+  border-color: $color-naranja;
+  color: $blanco;
+  padding: 0.8rem 2rem; // Le damos un padding más grande y específico.
+
+  &:hover {
+    background-color: $color-naranja-hover;
+    border-color: $color-naranja-hover;
+    transform: translateY(-2px); // Un pequeño efecto extra.
+  }
+}
+
+// 3. Creamos un botón para los formularios que TAMBIÉN HEREDA de la base.
+.btn-form {
+  @extend %btn-base; // <-- Reutilizamos la misma base.
+  background-color: $color-naranja;
+  color: $blanco;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-naranja-hover;
+  }
+}
+
+// ==================================================
+// BANNER/HERO
+// ==================================================
 .hero-section {
     background-color: $color-gris-claro;
     padding-top: 5rem;
@@ -17,18 +61,8 @@
         margin-bottom: 0.5rem;
     }
 
-    .btn-primary { // Estilo del botón principal
-        background-color: $color-naranja;
-        border-color: $color-naranja;
-        font-weight: bold;
-        padding: 0.8rem 2rem;
-        transition: background-color $transition-time ease, border-color $transition-time ease;
-
-        &:hover { // Nesting para hover
-            background-color: $color-naranja-hover;
-            border-color: $color-naranja-hover;
-        }
-    }
+    // EL ESTILO DEL BOTÓN .btn-primary SE HA MOVIDO A LA SECCIÓN DE ARRIBA
+    // Ahora solo necesitas usar la clase "btn-primary" en tu HTML.
 
     .hero-image-container {
         position: relative;
@@ -45,12 +79,11 @@
         z-index: 2;
     }
 
-    // Fondos de formas (shapes)
     .shapes-background {
         position: absolute;
         // ... (resto de propiedades) ...
 
-        &::before, &::after { // Nesting para pseudo-elementos
+        &::before, &::after {
             content: '';
             position: absolute;
             border-radius: 50%;
@@ -77,16 +110,16 @@
     }
 }
 
-// --------------------------------------------------
-// FORMULARIOS (Nesting aplicado)
-// --------------------------------------------------
+// ==================================================
+// FORMULARIOS
+// ==================================================
 .form-container {
     background-color: $color-celeste-pastel;
 
     h2 { text-align: center; }
 
     .form-group {
-        input, select, textarea { // Anidamiento de elementos de formulario
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid $color-azul;
@@ -95,12 +128,6 @@
         }
     }
 
-    button[type="submit"] {
-        background-color: $color-naranja;
-        transition: background-color $transition-time ease;
-
-        &:hover {
-            background-color: $color-naranja-hover;
-        }
-    }
+    // EL ESTILO DEL BOTÓN SUBMIT SE HA MOVIDO A LA SECCIÓN DE ARRIBA
+    // Ahora solo necesitas usar la clase "btn-form" en tu HTML.
 }
